@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">ProjecctForAndroidLessons</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="navigation_drawer_open"> Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="profile">Profile</string>
+    <string name="login">Login</string>
+    <string name="logout">Logout</string>
+    <string name="setting">setting</string>
+    <string name="home">Home</string>
+
+
+</resources>
