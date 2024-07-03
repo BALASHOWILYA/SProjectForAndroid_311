@@ -1,5 +1,7 @@
 package com.example.projecctforandroidlessons;
 
+import android.content.SharedPreferences;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.Button;
@@ -11,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.Insets;
 import androidx.core.view.GravityCompat;
@@ -20,6 +23,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.preference.PreferenceFragmentCompat;
+import androidx.preference.PreferenceManager;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -28,7 +33,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private CreateAccountFragment createAccountFragment = new CreateAccountFragment();
     private HomeFragment homeFragment = new HomeFragment();
 
+    private FragmentSettings fragmentSettings = new FragmentSettings();
+
     private ProfileFragment profileFragment = new ProfileFragment();
+
+
+
 
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
@@ -41,40 +51,49 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toolbar = findViewById(R.id.tool_bar_id);
     }
 
+
+    private void setThemeBasedOnPreferences() {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean useDarkTheme = sharedPreferences.getBoolean("theme_pref", false);
+        if (useDarkTheme) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
+        setThemeBasedOnPreferences();
         setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.drawer_layout), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
         init();
 
+        setupNavigationDrawer();
 
+        setupInitialFragment(savedInstanceState);
+
+    }
+
+    private void setupNavigationDrawer() {
         setSupportActionBar( toolbar);
         navigationView.bringToFront();
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+        navigationView.setNavigationItemSelectedListener(this);
+    }
 
-
-        FragmentManager fragmentManager = getSupportFragmentManager();
-
+    private void setupInitialFragment(Bundle savedInstanceState) {
         if (savedInstanceState == null) {
-            // Показать HomeFragment при запуске
+            // Show HomeFragment on initial launch
             replaceFragment(homeFragment);
         }
+    }
 
-        navigationView.setNavigationItemSelectedListener(this);
-
-
-
-
-
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setThemeBasedOnPreferences();
     }
 
     @Override
@@ -118,6 +137,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Toast.makeText(this, "menu_profile_id", Toast.LENGTH_LONG).show();
         }
         if(itemId == R.id.settings_id){
+            replaceFragment(fragmentSettings);
             Toast.makeText(this, "menu_exit_id", Toast.LENGTH_LONG).show();
         }
         if(itemId == R.id.nav_profile){
@@ -135,6 +155,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
+
+
+
 
 
 

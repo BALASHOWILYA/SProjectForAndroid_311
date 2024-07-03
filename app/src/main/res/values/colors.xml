@@ -2,4 +2,28 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="colorPrimaryLight">#6200EE</color>
+    <color name="colorPrimaryDarkLight">#3700B3</color>
+    <color name="colorAccentLight">#03DAC5</color>
+
+    <color name="colorPrimaryDark">#BB86FC</color>
+    <color name="colorPrimaryDarker">#3700B3</color>
+    <color name="colorAccentDark">#03DAC5</color>
+    <color name="colorPrimaryDarkDark">#3700B3</color>
+
+    <color name="textColorPrimary">#212121</color>
+    <color name="textColorPrimaryDark">#FFFFFF</color>
+
+    <color name="buttonBackground">#6200EE</color>
+    <color name="buttonTextColor">#FFFFFF</color>
+
+    <!-- Button Colors -->
+    <color name="buttonBackgroundLight">#03DAC5</color>
+    <color name="buttonTextColorLight">#FFFFFF</color>
+    <color name="buttonBackgroundDark">#BB86FC</color>
+    <color name="buttonTextColorDark">#000000</color>
+
+
+
 </resources>
+

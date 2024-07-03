@@ -1,10 +1,29 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.ProjecctForAndroidLessons" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-        <item name="android:statusBarColor"> #00000000 </item>
+    <!-- Base application theme for light mode. -->
+    <style name="LightTheme" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">#FF4081</item>
+        <item name="colorPrimaryDark">#F50057</item>
+        <item name="colorAccent">#FF4081</item>
+
+        <!-- Text settings. -->
+        <item name="android:textColorPrimary">#212121</item>
+        <item name="android:textSize">16sp</item>
+
+        <!-- Button style -->
+        <item name="buttonStyle">@style/CustomButton</item>
     </style>
 
-    <style name="Theme.ProjecctForAndroidLessons" parent="Base.Theme.ProjecctForAndroidLessons" />
+
+
+    <!-- Custom button style -->
+    <style name="CustomButton" parent="Widget.AppCompat.Button">
+        <item name="android:background">@color/buttonBackgroundLight</item>
+        <item name="android:textColor">@color/buttonTextColorLight</item>
+    </style>
+
+    <!-- Application Themes -->
+    <style name="Theme.ProjecctForAndroidLessons" parent="LightTheme" />
+    <style name="Theme.ProjecctForAndroidLessons.Dark" parent="DarkTheme" />
 </resources>
+

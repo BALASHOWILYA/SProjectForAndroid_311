@@ -1,7 +1,18 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.ProjecctForAndroidLessons" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    <!-- styles.xml -->
+    <style name="DarkTheme" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Define your dark theme attributes here -->
+        <item name="colorPrimary">#7C4DFF</item>
+        <item name="colorPrimaryDark">#512DA8</item>
+        <item name="colorAccent">#7C4DFF</item>
+        <!-- Text settings -->
+        <item name="android:textColorPrimary">#FFFFFF</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="CustomButtonDark" parent="Widget.Material3.Button">
+        <item name="android:backgroundTint">@color/buttonBackgroundDark</item>
+        <item name="android:textColor">@color/buttonTextColorDark</item>
     </style>
 </resources>

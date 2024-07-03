@@ -6,26 +6,13 @@
     android:orientation="vertical"
     tools:context=".ProfileFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-
     <TextView
-        android:layout_width="match_parent"
+        android:id="@+id/userNameTextView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:text="Profile" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:text="Profile" />
-
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:text="Profile" />
+        android:text="Username"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
 
 </LinearLayout>

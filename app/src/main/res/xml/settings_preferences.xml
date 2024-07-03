@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <EditTextPreference
+        android:title="User Name: "
+        android:summary="Enter the user name"
+        android:key="edit_pref" />
+
+    <SwitchPreference
+        android:title= "Turn ON/OFF Hotspot"
+        android:summary="Use to turn your hotspot ON/OFF"
+        android:key="switch_pref"/>
+
+    <CheckBoxPreference
+        android:title="Checkbox: "
+        android:summary="This is a  checkbox preference"
+        android:key="check_pref"
+        android:defaultValue="false"/>
+
+    <ListPreference
+        android:title="Ringtone"
+        android:summary="Select your ringtone"
+        android:key="list_pref"
+        android:entries="@array/ringtone"
+        android:entryValues="@array/ringtone"/>
+
+    <SwitchPreference
+        android:key="theme_pref"
+        android:title="Dark Theme"
+        android:summary="Toggle to switch between light and dark theme" />
+
+</PreferenceScreen>

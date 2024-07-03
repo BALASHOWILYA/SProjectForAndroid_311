@@ -11,6 +11,6 @@
         android:duration ="1000"
         android:fromAlpha="1"
         android:startOffset ="2000"
-        android:toAlpha="1"/>
+        android:toAlpha="0"/>
 
 </set>
