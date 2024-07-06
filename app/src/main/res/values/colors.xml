@@ -23,6 +23,8 @@
     <color name="buttonBackgroundDark">#BB86FC</color>
     <color name="buttonTextColorDark">#000000</color>
 
+    <color name ="colorPressed">#03DAC5</color>
+
 
 
 </resources>

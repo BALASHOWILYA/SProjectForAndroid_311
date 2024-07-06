@@ -5,19 +5,33 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.preference.PreferenceManager;
+
+import android.util.Log;
+import android.view.GestureDetector;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-public class ProfileFragment extends Fragment {
+public class ProfileFragment extends Fragment implements ScaleGestureDetector.OnScaleGestureListener, View.OnTouchListener {
 
+    private static final String DEBUG_TAG = "Gestures";
+    private ScaleGestureDetector mDetector;
+
+    private ImageView image;
+    private GestureDetector gestureDetector;
     private TextView userNameTextView;
 
 
     private void init(View view ){
         view.findViewById(R.id.userNameTextView);
     }
+
+
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
@@ -37,5 +51,29 @@ public class ProfileFragment extends Fragment {
         if (userNameTextView != null) {
             userNameTextView.setText(userName);
         }
+    }
+
+    @Override
+    public boolean onScale(@NonNull ScaleGestureDetector detector) {
+        Log.d(DEBUG_TAG, "onScale: " + detector.getScaleFactor());
+        return false;
+    }
+
+    @Override
+    public boolean onScaleBegin(@NonNull ScaleGestureDetector detector) {
+        Log.d(DEBUG_TAG, "onScaleBegin: " + detector.getScaleFactor());
+        return false;
+    }
+
+    @Override
+    public void onScaleEnd(@NonNull ScaleGestureDetector detector) {
+        Log.d(DEBUG_TAG, "onScaleEnd: " + detector.getScaleFactor());
+
+    }
+
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        this.mDetector.onTouchEvent(event);
+        return true;
     }
 }

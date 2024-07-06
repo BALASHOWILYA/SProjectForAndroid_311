@@ -6,6 +6,13 @@
     android:orientation="vertical"
     tools:context=".ProfileFragment">
 
+    <ImageView
+        android:id="@+id/image_id"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/img"
+        android:layout_gravity="center"/>
+
     <TextView
         android:id="@+id/userNameTextView"
         android:layout_width="wrap_content"

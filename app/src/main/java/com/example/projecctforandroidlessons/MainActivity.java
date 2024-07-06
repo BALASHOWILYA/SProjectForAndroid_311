@@ -114,9 +114,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void addFragment(Fragment fragment){
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.add(R.id.fragment_container, fragment);
-        transaction.addToBackStack(null);
+        FragmentTransaction transaction = getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.fragment_container, fragment)
+                .addToBackStack(null);
         transaction.commit();
 
     }
