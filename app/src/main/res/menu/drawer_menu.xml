@@ -37,6 +37,19 @@
                     android:title="@string/home" />
 
                 <item
+                    android:id="@+id/search_id"
+                    android:checked="false"
+                    android:icon="@drawable/baseline_search_24"
+                    android:title="@string/search" />
+
+                <item
+                    android:id="@+id/destination_id"
+                    android:checked="false"
+                    android:title="Destination" />
+
+
+
+                <item
                     android:id="@+id/settings_id"
                     android:checked="false"
                     android:icon="@drawable/settings_icon"
@@ -47,15 +60,6 @@
         </menu>
 
     </item>
-
-
-
-
-
-
-
-
-
 
 
 

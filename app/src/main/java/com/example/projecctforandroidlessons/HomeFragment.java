@@ -113,8 +113,15 @@ public class HomeFragment extends Fragment implements View.OnTouchListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        return inflater.inflate(R.layout.fragment_home, container, false);
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         init(view);
+
         image.setOnTouchListener(this);
         addTouchListener(linearLayout);
 
@@ -126,12 +133,9 @@ public class HomeFragment extends Fragment implements View.OnTouchListener {
         createAnimation(rotateButton, R.anim.rotate_animation);
         createAnimation(zoomButton, R.anim.zoom_animation);
         createAnimation(slideButton, R.anim.slide_animation);
-
-        // Inflate the layout for this fragment
-        return view;
     }
 
-
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public boolean onTouch(View v, MotionEvent event) {
 

@@ -36,9 +36,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private FragmentSettings fragmentSettings = new FragmentSettings();
 
     private ProfileFragment profileFragment = new ProfileFragment();
+    private SearchFragment searchFragment = new SearchFragment();
+    private TicketsFragment ticketsFragment = new TicketsFragment();
 
-
-
+    private DestinationFragment destinationFragment = new DestinationFragment();
 
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
@@ -108,24 +109,34 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void replaceFragment(Fragment fragment) {
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.fragment_container, fragment);
-        transaction.commit();
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.second_fragment_container, fragment)
+                .commit();
     }
 
     private void addFragment(Fragment fragment){
-        FragmentTransaction transaction = getSupportFragmentManager()
+
+        // Проверяем, добавлен ли фрагмент уже
+        Fragment existingFragment = getSupportFragmentManager().findFragmentById(R.id.first_fragment_container);
+        if (existingFragment != null && existingFragment.getClass().equals(fragment.getClass())) {
+            // Фрагмент уже добавлен, не делаем ничего
+            return;
+        }
+
+        getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.fragment_container, fragment)
-                .addToBackStack(null);
-        transaction.commit();
+                .add(R.id.first_fragment_container, fragment)
+                .addToBackStack(null)
+                .commit();
 
     }
 
     private void removeFragment(Fragment fragment){
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.remove(fragment);
-        transaction.commit();
+        getSupportFragmentManager()
+                .beginTransaction()
+                .remove(fragment)
+                .commit();
     }
 
 
@@ -152,18 +163,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if(itemId == R.id.nav_logout){
             Toast.makeText(this, "menu_settings_id", Toast.LENGTH_LONG).show();
         }
+        if(itemId == R.id.search_id){
+            addFragment(searchFragment);
+            replaceFragment(ticketsFragment);
+        }
+        if(itemId == R.id.destination_id){
+            addFragment(searchFragment);
+            replaceFragment(destinationFragment);
+        }
 
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
-
-
-
-
-
-
-
-
-
-
 }
