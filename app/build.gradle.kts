@@ -41,4 +41,7 @@ dependencies {
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
     implementation (libs.preference)
+    implementation (libs.mssql.jdbc)
+    implementation (libs.jtds)
+
 }
