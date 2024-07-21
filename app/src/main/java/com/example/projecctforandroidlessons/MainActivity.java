@@ -41,6 +41,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private DestinationFragment destinationFragment = new DestinationFragment();
 
+    private RegisterFragment registerFragment = new RegisterFragment();
+
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
     private Toolbar toolbar;
@@ -170,6 +172,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if(itemId == R.id.destination_id){
             addFragment(searchFragment);
             replaceFragment(destinationFragment);
+        }
+        if(itemId == R.id.register_id){
+            replaceFragment(registerFragment);
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);

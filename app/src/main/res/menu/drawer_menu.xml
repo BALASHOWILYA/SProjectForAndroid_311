@@ -47,6 +47,11 @@
                     android:checked="false"
                     android:title="Destination" />
 
+                <item
+                    android:id="@+id/register_id"
+                    android:checked="false"
+                    android:title="Registration" />
+
 
 
                 <item
