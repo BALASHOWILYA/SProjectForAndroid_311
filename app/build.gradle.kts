@@ -44,4 +44,7 @@ dependencies {
     implementation (libs.mssql.jdbc)
     implementation (libs.jtds)
 
+    implementation(libs.room.runtime)
+    annotationProcessor(libs.room.compiler)
+
 }

@@ -3,6 +3,7 @@ package com.example.projecctforandroidlessons;
 import android.content.SharedPreferences;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.Toast;
@@ -26,7 +27,16 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
 
+import com.example.projecctforandroidlessons.data.roomdb.AppDatabase;
+import com.example.projecctforandroidlessons.data.roomdb.Course;
+import com.example.projecctforandroidlessons.data.roomdb.Enrollment;
+import com.example.projecctforandroidlessons.data.roomdb.Student;
+import com.example.projecctforandroidlessons.data.roomdb.StudentWithCourses;
 import com.google.android.material.navigation.NavigationView;
+
+import java.util.List;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -38,6 +48,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private ProfileFragment profileFragment = new ProfileFragment();
     private SearchFragment searchFragment = new SearchFragment();
     private TicketsFragment ticketsFragment = new TicketsFragment();
+    private CoursesFragment coursesFragment = new CoursesFragment();
 
     private DestinationFragment destinationFragment = new DestinationFragment();
 
@@ -176,8 +187,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if(itemId == R.id.register_id){
             replaceFragment(registerFragment);
         }
+        if(itemId == R.id.id_db_room){
+            replaceFragment(coursesFragment);
+        }
+
 
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
+
 }

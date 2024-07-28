@@ -19,6 +19,11 @@
                     android:icon="@drawable/logout_icon"
                     android:title="@string/logout" />
 
+                <item
+                    android:id="@+id/id_db_room"
+                    android:icon="@drawable/logout_icon"
+                    android:title="room" />
+
             </group>
 
         </menu>
