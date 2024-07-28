@@ -81,12 +81,7 @@ public class AddStudentsFragment extends Fragment {
         StudentDomain student = new StudentDomain(name, email, birth_date );
 
         new Thread(()-> {
-            try {
-                studentDao.insert(student);
-            }
-            catch (Exception e){
-                e.toString();
-            }
+
 
 
 
