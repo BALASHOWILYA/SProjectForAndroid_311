@@ -4,9 +4,11 @@ import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
-import com.example.projecctforandroidlessons.domain.EnrollmentDomain;
+import com.example.projecctforandroidlessons.domain.models.EnrollmentDomain;
 
 import java.util.Date;
+
+
 
 @Entity(tableName = "enrollments",
         foreignKeys = {

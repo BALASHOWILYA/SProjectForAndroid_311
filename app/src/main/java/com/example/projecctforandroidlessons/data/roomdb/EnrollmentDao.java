@@ -31,6 +31,8 @@ public interface EnrollmentDao {
             "JOIN courses ON enrollments.courseId = courses.id")
     List<StudentWithCourses> getStudentsWithCourses();
 
+
+
     @Query("SELECT students.name AS studentName, " +
             "courses.name AS courseName, " +
             "enrollments.enrollmentDate AS enrollmentDate " +

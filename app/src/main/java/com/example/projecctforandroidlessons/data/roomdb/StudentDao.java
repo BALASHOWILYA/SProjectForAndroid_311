@@ -23,4 +23,8 @@ public interface StudentDao {
 
     @Query("SELECT * FROM students")
     List<Student> getAllStudents();
+
+    @Query("SELECT * FROM students WHERE students.email = :emailStudent LIMIT 1")
+    Student findStudentByEmail(String emailStudent);
 }
+

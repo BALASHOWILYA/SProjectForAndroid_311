@@ -4,6 +4,9 @@ package com.example.projecctforandroidlessons.data.roomdb;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import com.example.projecctforandroidlessons.domain.models.CourseDomain;
+import com.example.projecctforandroidlessons.domain.models.StudentDomain;
+
 @Entity(tableName = "courses")
 public class Course {
     @PrimaryKey(autoGenerate = true)
@@ -27,4 +30,17 @@ public class Course {
 
     public int getCourseCode() { return courseCode; }
     public void setCourseCode(int courseCode) { this.courseCode = courseCode; }
+
+    // Конвертеры
+    public static Course fromDomain(CourseDomain domain) {
+        Course course = new Course();
+        course.setName(domain.getName());
+        course.setCourseCode(domain.getCourseCode());
+        course.setCredits(domain.getCredits());
+        return course;
+    }
+
+    public CourseDomain toDomain() {
+        return new CourseDomain(name, courseCode, credits);
+    }
 }

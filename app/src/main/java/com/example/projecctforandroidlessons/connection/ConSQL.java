@@ -4,7 +4,7 @@ import android.annotation.SuppressLint;
 import android.os.StrictMode;
 import android.util.Log;
 
-import com.example.projecctforandroidlessons.FlightInfo;
+import com.example.projecctforandroidlessons.presentation.ui.FlightInfo;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

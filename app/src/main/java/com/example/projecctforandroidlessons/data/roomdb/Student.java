@@ -4,8 +4,7 @@ package com.example.projecctforandroidlessons.data.roomdb;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-import com.example.projecctforandroidlessons.domain.EnrollmentDomain;
-import com.example.projecctforandroidlessons.domain.StudentDomain;
+import com.example.projecctforandroidlessons.domain.models.StudentDomain;
 
 @Entity(tableName = "students")
 public class Student {

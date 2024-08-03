@@ -1,26 +1,18 @@
 package com.example.projecctforandroidlessons;
 
 import android.app.Application;
-
 import com.example.projecctforandroidlessons.data.roomdb.AppDatabase;
 
 public class MApplication extends Application {
-
-    private static MApplication instance;
-    private AppDatabase database;
+    private static AppDatabase database;
 
     @Override
     public void onCreate() {
         super.onCreate();
-        instance = this;
-        database = AppDatabase.getInstance(this);
+        database = AppDatabase.getInstance(getApplicationContext());
     }
 
-    public static synchronized MApplication getInstance() {
-        return instance;
-    }
-
-    public AppDatabase getDatabase() {
+    public static AppDatabase getDatabase() {
         return database;
     }
 }
