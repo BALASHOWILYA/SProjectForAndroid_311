@@ -23,6 +23,15 @@
                     android:id="@+id/id_db_room"
                     android:icon="@drawable/logout_icon"
                     android:title="room" />
+                <item
+                    android:id="@+id/id_add_student_db_room"
+                    android:title="add student" />
+                <item
+                    android:id="@+id/id_update_student_db_room"
+                    android:title="update student" />
+                <item
+                    android:id="@+id/id_get_all_students_db_room"
+                    android:title="get all students" />
 
             </group>
 

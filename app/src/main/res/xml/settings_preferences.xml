@@ -29,4 +29,10 @@
         android:title="Dark Theme"
         android:summary="Toggle to switch between light and dark theme" />
 
+    <!-- Новый пункт для удаления студента -->
+    <Preference
+        android:key="delete_student_pref"
+        android:title="Delete Student"
+        android:summary="Delete a student by email" />
+
 </PreferenceScreen>

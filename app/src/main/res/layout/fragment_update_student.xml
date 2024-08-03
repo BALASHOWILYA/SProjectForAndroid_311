@@ -3,13 +3,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.AddStudentsFragment"
-    android:padding="16dp">
+    android:padding="16dp"
+    tools:context=".presentation.UpdateStudentFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Enter Student Email to Search:" />
+
+        <EditText
+            android:id="@+id/edit_text_search_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="15"
+            android:hint="Enter student email to search" />
+
+        <Button
+            android:id="@+id/button_search_student"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Search Student"
+            android:layout_marginTop="16dp" />
 
         <TextView
             android:layout_width="match_parent"
@@ -48,18 +67,12 @@
             android:hint="Enter birth date" />
 
         <Button
-            android:id="@+id/button_add_student"
+            android:id="@+id/button_update_student"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Add Student"
-            android:layout_marginTop="16dp" />
-
-        <TextView
-            android:id="@+id/is_result_view_text_id"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="result"/>
-
+            android:text="Update Student"
+            android:layout_marginTop="16dp"
+            android:enabled="false" />
     </LinearLayout>
 
 </FrameLayout>
