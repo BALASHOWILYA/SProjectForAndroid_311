@@ -15,6 +15,7 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.Studen
 
     private List<StudentDomain> students = new ArrayList<>();
 
+
     @NonNull
     @Override
     public StudentViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -37,6 +38,9 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.Studen
         this.students = students;
         notifyDataSetChanged();
     }
+
+
+
 
     static class StudentViewHolder extends RecyclerView.ViewHolder {
 

@@ -49,6 +49,8 @@ public class GetAllStudentsFragment extends Fragment {
                 return (T) new StudentViewModel(addStudentUseCase, updateStudentUseCase, findStudentUseCase, getAllStudentsUseCase, deleteStudentUseCase );
             }
         }).get(StudentViewModel.class);
+
+
     }
 
     @Override
@@ -72,6 +74,11 @@ public class GetAllStudentsFragment extends Fragment {
             // Update the UI
             studentsAdapter.setStudents(students);
         });
+
+
+
+
+
 
         // Fetch the students from the database
         studentViewModel.fetchStudents();

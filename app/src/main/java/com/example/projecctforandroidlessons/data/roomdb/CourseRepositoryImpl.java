@@ -3,8 +3,8 @@ package com.example.projecctforandroidlessons.data.roomdb;
 import com.example.projecctforandroidlessons.domain.models.CourseDomain;
 import com.example.projecctforandroidlessons.domain.repository.CourseRepository;
 
-import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class CourseRepositoryImpl implements CourseRepository {
 
@@ -20,17 +20,19 @@ public class CourseRepositoryImpl implements CourseRepository {
     }
 
     @Override
-    public void update(CourseDomain course) {
-
+    public void update(CourseDomain courseDomain) {
+        new Thread(() -> courseDao.update(Course.fromDomain(courseDomain))).start();
     }
 
     @Override
-    public void delete(String course) {
+    public void delete(String courseName) {
 
     }
 
     @Override
     public List<CourseDomain> getAllCourses() {
-        return Collections.emptyList();
+        return courseDao.getAllCourses().stream()
+                .map(Course::toDomain)
+                .collect(Collectors.toList());
     }
 }

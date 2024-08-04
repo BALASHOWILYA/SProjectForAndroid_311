@@ -5,6 +5,17 @@
 
         <menu>
             <group android:checkableBehavior="single">
+
+                <item
+                    android:id="@+id/id_get_all_courses_db_room"
+                    android:title="get all courses"/>
+                <item
+                    android:id="@+id/id_add_course_db_room"
+                    android:title="add course" />
+                <item
+                    android:id="@+id/id_for_course_fragment"
+                    android:title="for course fragment" />
+
                 <item
                     android:id="@+id/nav_profile"
                     android:icon="@drawable/profile"
@@ -32,6 +43,7 @@
                 <item
                     android:id="@+id/id_get_all_students_db_room"
                     android:title="get all students" />
+
 
             </group>
 

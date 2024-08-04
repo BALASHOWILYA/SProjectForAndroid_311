@@ -16,3 +16,4 @@ public class MApplication extends Application {
         return database;
     }
 }
+

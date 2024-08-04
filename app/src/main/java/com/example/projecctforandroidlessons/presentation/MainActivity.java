@@ -16,6 +16,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.preference.PreferenceManager;
 
+import com.example.projecctforandroidlessons.AddCourseFragment;
+import com.example.projecctforandroidlessons.GetAllCoursesFragment;
 import com.example.projecctforandroidlessons.R;
 import com.google.android.material.navigation.NavigationView;
 
@@ -34,6 +36,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private UpdateStudentFragment coursesStudentFragment = new UpdateStudentFragment();
     private DestinationFragment destinationFragment = new DestinationFragment();
     private GetAllStudentsFragment getAllStudentsFragment = new GetAllStudentsFragment();
+    private AddCourseFragment addCourseFragment = new AddCourseFragment();
+    private GetAllCoursesFragment getAllCoursesFragment = new GetAllCoursesFragment();
+    private CourseFragment courseFragment = new CourseFragment();
+
+
+
 
     private RegisterFragment registerFragment = new RegisterFragment();
 
@@ -181,6 +189,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         if(itemId == R.id.id_get_all_students_db_room){
             replaceFragment(getAllStudentsFragment);
+        }
+        if(itemId == R.id.id_get_all_courses_db_room){
+            replaceFragment(getAllCoursesFragment);
+        }
+        if(itemId == R.id.id_add_course_db_room){
+            replaceFragment(addCourseFragment);
+        }
+        if(itemId == R.id.id_for_course_fragment){
+            replaceFragment(courseFragment);
         }
 
 

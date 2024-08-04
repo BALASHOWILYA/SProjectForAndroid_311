@@ -21,3 +21,5 @@ public interface CourseRepository {
 
     List<CourseDomain> getAllCourses();
 }
+
+

@@ -21,6 +21,8 @@ public class StudentViewModel extends ViewModel {
     private final DeleteStudentUseCase deleteStudentUseCase;
     private final MutableLiveData<List<StudentDomain>> studentLiveData = new MutableLiveData<>();
 
+
+
     public StudentViewModel(AddStudentUseCase addStudentUseCase, UpdateStudentUseCase updateStudentUseCase, FindStudentUseCase findStudentUseCase, GetAllStudentsUseCase getAllStudentsUseCase, DeleteStudentUseCase deleteStudentUseCase) {
         this.addStudentUseCase = addStudentUseCase;
         this.updateStudentUseCase = updateStudentUseCase;
@@ -33,6 +35,11 @@ public class StudentViewModel extends ViewModel {
         return studentLiveData;
     }
 
+
+
+
+
+
     public void fetchStudents() {
         new Thread(() -> {
             List<StudentDomain> students = getAllStudentsUseCase.execute();
@@ -40,12 +47,23 @@ public class StudentViewModel extends ViewModel {
         }).start();
     }
 
+
+
+
+
+
+
+
+
     public void insert(StudentDomain studentDomain) {
         new Thread(() -> {
             addStudentUseCase.execute(studentDomain);
             fetchStudents(); // Обновление списка студентов после добавления
         }).start();
     }
+
+
+
 
     public void update(StudentDomain studentDomain) {
         new Thread(() -> {
@@ -58,10 +76,16 @@ public class StudentViewModel extends ViewModel {
         return findStudentUseCase.execute(email);
     }
 
+
+
     public void deleteStudentByEmail(String email) {
         new Thread(() -> {
             deleteStudentUseCase.execute(email);
             fetchStudents(); // Обновление списка студентов после удаления
         }).start();
     }
+
+
+
+
 }

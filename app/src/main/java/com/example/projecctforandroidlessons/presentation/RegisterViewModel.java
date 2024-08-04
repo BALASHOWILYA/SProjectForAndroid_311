@@ -17,6 +17,8 @@ public class RegisterViewModel extends AndroidViewModel {
     private final MutableLiveData<String> status = new MutableLiveData<>();
     private final MutableLiveData<Boolean> isSuccess = new MutableLiveData<>();
 
+
+
     public RegisterViewModel(Application application) {
         super(application);
     }

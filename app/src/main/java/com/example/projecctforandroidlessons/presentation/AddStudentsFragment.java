@@ -34,6 +34,7 @@ public class AddStudentsFragment extends Fragment {
 
     private StudentViewModel studentViewModel;
 
+
     private void init(View view) {
         editTextStudentName = view.findViewById(R.id.edit_text_student_name);
         editTextStudentEmail = view.findViewById(R.id.edit_text_email);
@@ -62,6 +63,9 @@ public class AddStudentsFragment extends Fragment {
                 return (T) new StudentViewModel(addStudentUseCase, updateStudentUseCase, findStudentUseCase, getAllStudentsUseCase, deleteStudentUseCase );
             }
         }).get(StudentViewModel.class);
+
+
+
     }
 
     @Override
@@ -88,5 +92,9 @@ public class AddStudentsFragment extends Fragment {
         new Thread(() -> {
             studentViewModel.insert(student);
         }).start();
+
+
     }
+
+
 }
