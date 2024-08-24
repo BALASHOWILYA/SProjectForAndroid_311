@@ -14,16 +14,21 @@ import com.example.projecctforandroidlessons.MApplication;
 import com.example.projecctforandroidlessons.data.roomdb.AppDatabase;
 import com.example.projecctforandroidlessons.data.roomdb.Course;
 
+
+
 public class CourseContentProvider extends ContentProvider {
 
     private static final String AUTHORITY = "com.example.projecctforandroidlessons.data.roomdb.provider";
     private static final String COURSE_TABLE = "courses";
     public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/" + COURSE_TABLE);
 
+
+
     private static final int COURSES = 1;
     private static final int COURSE_ID = 2;
 
     private static final UriMatcher uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
+
     static {
         uriMatcher.addURI(AUTHORITY, COURSE_TABLE, COURSES);
         uriMatcher.addURI(AUTHORITY, COURSE_TABLE + "/#", COURSE_ID);
@@ -58,6 +63,8 @@ public class CourseContentProvider extends ContentProvider {
         }
         return cursor;
     }
+
+    
 
     @Nullable
     @Override

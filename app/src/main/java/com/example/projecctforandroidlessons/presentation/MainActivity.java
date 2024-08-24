@@ -1,8 +1,12 @@
 package com.example.projecctforandroidlessons.presentation;
 
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.Toast;
 
 
@@ -18,13 +22,19 @@ import androidx.preference.PreferenceManager;
 
 import com.example.projecctforandroidlessons.AddCourseFragment;
 import com.example.projecctforandroidlessons.GetAllCoursesFragment;
+import com.example.projecctforandroidlessons.MusicService;
+import com.example.projecctforandroidlessons.MyService;
+import com.example.projecctforandroidlessons.NetworkChangeReceiver;
 import com.example.projecctforandroidlessons.R;
+import com.example.projecctforandroidlessons.TimeChangeReceiver;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private CreateAccountFragment createAccountFragment = new CreateAccountFragment();
     private HomeFragment homeFragment = new HomeFragment();
+    private TimeChangeReceiver timeChangeReceiver;
+    private NetworkChangeReceiver networkChangeReceiver;
 
     private FragmentSettings fragmentSettings = new FragmentSettings();
 
@@ -48,12 +58,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
     private Toolbar toolbar;
+    private Button startButton, stopButton;
 
     private void init(){
 
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         toolbar = findViewById(R.id.tool_bar_id);
+        startButton = findViewById(R.id.start_button_id);
+        stopButton = findViewById(R.id.stop_button_id);
     }
 
 
@@ -76,6 +89,38 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setupNavigationDrawer();
 
         setupInitialFragment(savedInstanceState);
+
+        Intent serviceIntent = new Intent(this, MyService.class) ;
+        startService(serviceIntent);
+
+        new android.os.Handler().postDelayed(()->{
+            stopService(serviceIntent);
+        }, 20000);
+
+        startButton.setOnClickListener((view)->{
+            Intent intent = new Intent(this, MusicService.class);
+            startService(intent);
+
+        });
+        stopButton.setOnClickListener((view)->{
+            Intent intent = new Intent(this, MusicService.class);
+            stopService(intent);
+        });
+
+        timeChangeReceiver = new TimeChangeReceiver();
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(Intent.ACTION_TIME_CHANGED);
+        filter.addAction(Intent.ACTION_DATE_CHANGED);
+        filter.addAction(Intent.ACTION_TIMEZONE_CHANGED);
+        registerReceiver(timeChangeReceiver, filter);
+
+        networkChangeReceiver = new NetworkChangeReceiver();
+
+        IntentFilter filter1 = new IntentFilter();
+        filter1.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(networkChangeReceiver, filter1);
+
+
 
     }
 
@@ -205,6 +250,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(timeChangeReceiver != null){
+            unregisterReceiver(timeChangeReceiver);
+        }
+        if(networkChangeReceiver != null){
+            unregisterReceiver(networkChangeReceiver);
+        }
+    }
 }
