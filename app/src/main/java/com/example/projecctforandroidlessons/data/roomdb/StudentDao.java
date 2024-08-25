@@ -1,6 +1,8 @@
 package com.example.projecctforandroidlessons.data.roomdb;
 
 
+import android.database.Cursor;
+
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -16,15 +18,27 @@ public interface StudentDao {
     long insert(Student student);
 
     @Update
-    void update(Student student);
+    int update(Student student);
 
     @Delete
-    void delete(Student student);
+    int delete(Student student);
 
     @Query("SELECT * FROM students")
     List<Student> getAllStudents();
 
     @Query("SELECT * FROM students WHERE students.email = :emailStudent LIMIT 1")
     Student findStudentByEmail(String emailStudent);
+
+    // Для ContentProvider
+    @Query("SELECT * FROM students")
+    Cursor getAllStudentsCursor();
+
+    @Query("SELECT * FROM students WHERE id = :id LIMIT 1")
+    Cursor getStudentByIdCursor(long id);
+
+    @Query("DELETE FROM students WHERE id = :id")
+    int deleteStudentById(long id);
+
+
 }
 

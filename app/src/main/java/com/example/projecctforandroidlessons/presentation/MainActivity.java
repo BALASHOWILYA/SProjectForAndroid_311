@@ -21,6 +21,7 @@ import androidx.fragment.app.Fragment;
 import androidx.preference.PreferenceManager;
 
 import com.example.projecctforandroidlessons.AddCourseFragment;
+import com.example.projecctforandroidlessons.BatteryLevelReceiver;
 import com.example.projecctforandroidlessons.GetAllCoursesFragment;
 import com.example.projecctforandroidlessons.MusicService;
 import com.example.projecctforandroidlessons.MyService;
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private HomeFragment homeFragment = new HomeFragment();
     private TimeChangeReceiver timeChangeReceiver;
     private NetworkChangeReceiver networkChangeReceiver;
+    private BatteryLevelReceiver batteryLevelReceiver;
 
     private FragmentSettings fragmentSettings = new FragmentSettings();
 
@@ -119,6 +121,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         IntentFilter filter1 = new IntentFilter();
         filter1.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
         registerReceiver(networkChangeReceiver, filter1);
+
+
+        batteryLevelReceiver = new BatteryLevelReceiver();
+        IntentFilter filter2 = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
+        registerReceiver(batteryLevelReceiver, filter2);
+
+
 
 
 
@@ -258,6 +267,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         if(networkChangeReceiver != null){
             unregisterReceiver(networkChangeReceiver);
+        }
+        if(batteryLevelReceiver != null){
+            unregisterReceiver(batteryLevelReceiver);
         }
     }
 }

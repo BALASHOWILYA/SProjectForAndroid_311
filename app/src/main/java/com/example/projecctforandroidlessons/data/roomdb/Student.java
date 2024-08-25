@@ -1,6 +1,8 @@
 package com.example.projecctforandroidlessons.data.roomdb;
 
 
+import android.content.ContentValues;
+
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
@@ -39,6 +41,21 @@ public class Student {
 
     public StudentDomain toDomain() {
         return new StudentDomain(name, email, birthDate);
+    }
+
+    // Новый метод для конвертации из ContentValues
+    public static Student fromContentValues(ContentValues values) {
+        Student student = new Student();
+        if (values.containsKey("name")) {
+            student.setName(values.getAsString("name"));
+        }
+        if (values.containsKey("email")) {
+            student.setEmail(values.getAsString("email"));
+        }
+        if (values.containsKey("birthDate")) {
+            student.setBirthDate(values.getAsString("birthDate"));
+        }
+        return student;
     }
 
 }
