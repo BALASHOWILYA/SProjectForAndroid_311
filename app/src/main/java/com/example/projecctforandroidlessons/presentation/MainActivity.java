@@ -51,8 +51,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private AddCourseFragment addCourseFragment = new AddCourseFragment();
     private GetAllCoursesFragment getAllCoursesFragment = new GetAllCoursesFragment();
     private CourseFragment courseFragment = new CourseFragment();
-
-
+    private ContactsFragment contactsFragment = new ContactsFragment();
+    private AddContactFragment addContactFragment = new AddContactFragment();
+    private EditContactFragment editContactFragment = new EditContactFragment();
+    private SearchContactFragment searchContactFragment = new SearchContactFragment();
 
 
     private RegisterFragment registerFragment = new RegisterFragment();
@@ -206,9 +208,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             replaceFragment(homeFragment);
             Toast.makeText(this, "menu_profile_id", Toast.LENGTH_LONG).show();
         }
+        if(itemId == R.id.search_contacts_id){
+            replaceFragment(searchContactFragment);
+        }
         if(itemId == R.id.settings_id){
             replaceFragment(fragmentSettings);
             Toast.makeText(this, "menu_exit_id", Toast.LENGTH_LONG).show();
+        }
+        if(itemId == R.id.edit_contact_fragment_id){
+            replaceFragment(editContactFragment);
+        }
+        if(itemId == R.id.add_contact_fragment_id){
+            replaceFragment(addContactFragment);
         }
         if(itemId == R.id.nav_profile){
             replaceFragment(profileFragment);
@@ -252,6 +263,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         if(itemId == R.id.id_for_course_fragment){
             replaceFragment(courseFragment);
+        }
+        if(itemId == R.id.id_for_contacts_fragment){
+            replaceFragment(contactsFragment);
         }
 
 

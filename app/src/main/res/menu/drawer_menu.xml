@@ -7,6 +7,22 @@
             <group android:checkableBehavior="single">
 
                 <item
+                    android:id="@+id/search_contacts_id"
+                    android:title="search contacts" />
+
+                <item
+                    android:id="@+id/edit_contact_fragment_id"
+                    android:title="edit contact"
+                    />
+                <item
+                    android:id="@+id/add_contact_fragment_id"
+                    android:title="add contact" />
+                <item
+                    android:id="@+id/id_for_contacts_fragment"
+                    android:title="get contacts"/>
+
+
+                <item
                     android:id="@+id/id_get_all_courses_db_room"
                     android:title="get all courses"/>
                 <item
