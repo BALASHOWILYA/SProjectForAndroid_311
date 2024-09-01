@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".presentation.SearchContactFragment">
+
+    <EditText
+        android:id="@+id/contact_name_edit_text_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Введите имя"/>
+
+    <Button
+        android:id="@+id/search_contact_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Найти контакты"/>
+
+    <TextView
+        android:id="@+id/search_result_text_view_id"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Результат текста"/>
+
+
+</LinearLayout>

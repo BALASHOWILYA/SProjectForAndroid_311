@@ -55,6 +55,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private AddContactFragment addContactFragment = new AddContactFragment();
     private EditContactFragment editContactFragment = new EditContactFragment();
     private SearchContactFragment searchContactFragment = new SearchContactFragment();
+    private TelephonyManagerFragment telephonyManagerFragment = new TelephonyManagerFragment();
+    private CalendarFragment calendarFragment = new CalendarFragment();
+    private AddEventFragment addEventFragment = new AddEventFragment();
+    private DeleteEventFragment deleteEventFragment = new DeleteEventFragment();
 
 
     private RegisterFragment registerFragment = new RegisterFragment();
@@ -204,9 +208,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
         int itemId = item.getItemId();
+
         if(itemId == R.id.home_id){
             replaceFragment(homeFragment);
             Toast.makeText(this, "menu_profile_id", Toast.LENGTH_LONG).show();
+        }
+        if(itemId == R.id.delete_event_fragment_id){
+            replaceFragment(deleteEventFragment);
+        }
+        if(itemId == R.id.add_event_fragment_id){
+            replaceFragment(addEventFragment);
+        }
+        if(itemId == R.id.calendar_fragment_id){
+            replaceFragment(calendarFragment);
+        }
+        if(itemId == R.id.telephony_manager_id){
+            replaceFragment(telephonyManagerFragment);
         }
         if(itemId == R.id.search_contacts_id){
             replaceFragment(searchContactFragment);

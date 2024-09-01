@@ -6,6 +6,19 @@
         <menu>
             <group android:checkableBehavior="single">
 
+                <item android:id="@+id/add_event_fragment_id"
+                    android:title="add event" />
+
+                <item android:id="@+id/delete_event_fragment_id"
+                    android:title="delete event" />
+
+                <item android:id="@+id/calendar_fragment_id"
+                    android:title="calendar"/>
+
+                <item android:id="@+id/telephony_manager_id"
+                    android:title="telephony manager"
+                    />
+
                 <item
                     android:id="@+id/search_contacts_id"
                     android:title="search contacts" />
