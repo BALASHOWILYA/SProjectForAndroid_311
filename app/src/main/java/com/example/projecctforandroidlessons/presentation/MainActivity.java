@@ -21,6 +21,7 @@ import androidx.fragment.app.Fragment;
 import androidx.preference.PreferenceManager;
 
 import com.example.projecctforandroidlessons.AddCourseFragment;
+import com.example.projecctforandroidlessons.AudioRecordFragment;
 import com.example.projecctforandroidlessons.BatteryLevelReceiver;
 import com.example.projecctforandroidlessons.GetAllCoursesFragment;
 import com.example.projecctforandroidlessons.MusicService;
@@ -28,6 +29,7 @@ import com.example.projecctforandroidlessons.MyService;
 import com.example.projecctforandroidlessons.NetworkChangeReceiver;
 import com.example.projecctforandroidlessons.R;
 import com.example.projecctforandroidlessons.TimeChangeReceiver;
+import com.example.projecctforandroidlessons.VideoFragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -59,6 +61,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private CalendarFragment calendarFragment = new CalendarFragment();
     private AddEventFragment addEventFragment = new AddEventFragment();
     private DeleteEventFragment deleteEventFragment = new DeleteEventFragment();
+    private VideoFragment videoFragment = new VideoFragment();
+    private AudioRecordFragment audioRecordFragment = new AudioRecordFragment();
 
 
     private RegisterFragment registerFragment = new RegisterFragment();
@@ -212,6 +216,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if(itemId == R.id.home_id){
             replaceFragment(homeFragment);
             Toast.makeText(this, "menu_profile_id", Toast.LENGTH_LONG).show();
+        }
+        if(itemId == R.id.audio_record_fragment_id){
+            replaceFragment(audioRecordFragment);
+        }
+        if(itemId == R.id.video_fragment_id){
+            replaceFragment(videoFragment);
         }
         if(itemId == R.id.delete_event_fragment_id){
             replaceFragment(deleteEventFragment);

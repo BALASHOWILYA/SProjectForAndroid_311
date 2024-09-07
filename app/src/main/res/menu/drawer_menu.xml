@@ -6,6 +6,12 @@
         <menu>
             <group android:checkableBehavior="single">
 
+                <item android:id="@+id/video_fragment_id"
+                    android:title="show video" />
+
+                <item android:id="@+id/audio_record_fragment_id"
+                    android:title="record voice" />
+
                 <item android:id="@+id/add_event_fragment_id"
                     android:title="add event" />
 
