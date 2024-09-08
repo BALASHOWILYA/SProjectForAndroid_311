@@ -24,10 +24,12 @@ import com.example.projecctforandroidlessons.AddCourseFragment;
 import com.example.projecctforandroidlessons.AudioRecordFragment;
 import com.example.projecctforandroidlessons.BatteryLevelReceiver;
 import com.example.projecctforandroidlessons.GetAllCoursesFragment;
+import com.example.projecctforandroidlessons.GyroscopeFragment;
 import com.example.projecctforandroidlessons.MusicService;
 import com.example.projecctforandroidlessons.MyService;
 import com.example.projecctforandroidlessons.NetworkChangeReceiver;
 import com.example.projecctforandroidlessons.R;
+import com.example.projecctforandroidlessons.SensorFragment;
 import com.example.projecctforandroidlessons.TimeChangeReceiver;
 import com.example.projecctforandroidlessons.VideoFragment;
 import com.google.android.material.navigation.NavigationView;
@@ -63,6 +65,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private DeleteEventFragment deleteEventFragment = new DeleteEventFragment();
     private VideoFragment videoFragment = new VideoFragment();
     private AudioRecordFragment audioRecordFragment = new AudioRecordFragment();
+    private GyroscopeFragment gyroscopeFragment = new GyroscopeFragment();
+    private SensorFragment sensorFragment = new SensorFragment();
 
 
     private RegisterFragment registerFragment = new RegisterFragment();
@@ -217,8 +221,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             replaceFragment(homeFragment);
             Toast.makeText(this, "menu_profile_id", Toast.LENGTH_LONG).show();
         }
+        if(itemId == R.id.sensor_fragment_id){
+            replaceFragment(sensorFragment);
+        }
         if(itemId == R.id.audio_record_fragment_id){
             replaceFragment(audioRecordFragment);
+        }
+        if(itemId == R.id.gyroscope_fragment_id){
+            replaceFragment(gyroscopeFragment);
         }
         if(itemId == R.id.video_fragment_id){
             replaceFragment(videoFragment);

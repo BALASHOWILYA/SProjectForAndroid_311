@@ -8,6 +8,10 @@
 
                 <item android:id="@+id/video_fragment_id"
                     android:title="show video" />
+                <item android:id="@+id/sensor_fragment_id"
+                    android:title="show sensor fragment" />
+                <item android:id="@+id/gyroscope_fragment_id"
+                    android:title="show gyroscope data"/>
 
                 <item android:id="@+id/audio_record_fragment_id"
                     android:title="record voice" />

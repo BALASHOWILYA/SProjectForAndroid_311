@@ -14,9 +14,9 @@
     <uses-permission android:name="android.permission.READ_CALENDAR" />
     <uses-permission android:name="android.permission.WRITE_CALENDAR" />
     <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
-
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="32"
         tools:ignore="ScopedStorage" />
 
@@ -42,9 +42,21 @@
         android:theme="@style/Theme.ProjecctForAndroidLessons"
         tools:targetApi="31">
         <service
-            android:name=".AudioRecordService"
+            android:name=".SecondSencerService"
             android:enabled="true"
             android:exported="true"></service>
+        <service
+            android:name=".SensorService"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name=".GyroscopeService"
+            android:enabled="true"
+            android:exported="true" />
+        <service
+            android:name=".AudioRecordService"
+            android:enabled="true"
+            android:exported="true" />
 
         <receiver
             android:name=".BatteryLevelReceiver"
